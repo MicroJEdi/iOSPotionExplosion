@@ -18,17 +18,13 @@ enum IngredientType: CaseIterable {
 
 struct Ingredient: Identifiable, Hashable {
     let id: UUID = UUID()
-    var row: Int
-    var column: Int
     var ingredientType: IngredientType
     
     var color: Color {
         return Ingredient.IngredientTypeColorMap[self.ingredientType] ?? Color.purple
     }
     
-    init(row: Int, column: Int, ingredientType: IngredientType) {
-        self.row = row
-        self.column = column
+    init(ingredientType: IngredientType) {
         self.ingredientType = ingredientType
     }
     
@@ -42,8 +38,6 @@ struct Ingredient: Identifiable, Hashable {
                 dict[IngredientType.black] = Color.black
             case IngredientType.yellow:
                 dict[IngredientType.yellow] = Color.yellow
-            default:
-                print("Unknown Ingredient Type")
         }
     }
 }

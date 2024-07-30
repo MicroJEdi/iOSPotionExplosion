@@ -18,7 +18,6 @@
 		291F4DA12C514DB10050BFF8 /* ModelContainerPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291F4DA02C514DB10050BFF8 /* ModelContainerPreview.swift */; };
 		291F4DA32C514DCF0050BFF8 /* ModelContainerSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291F4DA22C514DCF0050BFF8 /* ModelContainerSetup.swift */; };
 		291F4DA52C514E460050BFF8 /* ItemDataExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291F4DA42C514E460050BFF8 /* ItemDataExtension.swift */; };
-		291F4DA72C5151000050BFF8 /* GameLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291F4DA62C5151000050BFF8 /* GameLayout.swift */; };
 		291F4DA92C51512D0050BFF8 /* ActiveTurnPlayerArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291F4DA82C51512D0050BFF8 /* ActiveTurnPlayerArea.swift */; };
 		291F4DAB2C5151350050BFF8 /* GameBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291F4DAA2C5151350050BFF8 /* GameBoard.swift */; };
 		291F4DB12C51541F0050BFF8 /* Ingredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291F4DB02C51541F0050BFF8 /* Ingredient.swift */; };
@@ -33,11 +32,13 @@
 		291F4DC42C52AD8B0050BFF8 /* IngredientDataExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291F4DC32C52AD8B0050BFF8 /* IngredientDataExtension.swift */; };
 		291F4DC62C52B29F0050BFF8 /* SampleDataProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291F4DC52C52B29F0050BFF8 /* SampleDataProtocol.swift */; };
 		291F4DC82C52C9720050BFF8 /* PotionRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291F4DC72C52C9720050BFF8 /* PotionRow.swift */; };
+		2929640A2C571EAB0090A79E /* TurnActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292964092C571EAB0090A79E /* TurnActions.swift */; };
 		29BBE1402C54A371001A3B49 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BBE13F2C54A371001A3B49 /* Token.swift */; };
 		29BBE1442C54CBD8001A3B49 /* Turn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BBE1432C54CBD8001A3B49 /* Turn.swift */; };
 		29BBE1462C54CEFC001A3B49 /* SavedIngredients.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BBE1452C54CEFC001A3B49 /* SavedIngredients.swift */; };
 		29BBE1492C554BEF001A3B49 /* GrowingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BBE1482C554BEF001A3B49 /* GrowingButton.swift */; };
 		29BBE14B2C554DE3001A3B49 /* IngredientButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BBE14A2C554DE3001A3B49 /* IngredientButton.swift */; };
+		29D7C4D92C5826C800E8C064 /* IngredientSelectionTypePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D7C4D82C5826C800E8C064 /* IngredientSelectionTypePicker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,7 +73,6 @@
 		291F4DA02C514DB10050BFF8 /* ModelContainerPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelContainerPreview.swift; sourceTree = "<group>"; };
 		291F4DA22C514DCF0050BFF8 /* ModelContainerSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelContainerSetup.swift; sourceTree = "<group>"; };
 		291F4DA42C514E460050BFF8 /* ItemDataExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDataExtension.swift; sourceTree = "<group>"; };
-		291F4DA62C5151000050BFF8 /* GameLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameLayout.swift; sourceTree = "<group>"; };
 		291F4DA82C51512D0050BFF8 /* ActiveTurnPlayerArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveTurnPlayerArea.swift; sourceTree = "<group>"; };
 		291F4DAA2C5151350050BFF8 /* GameBoard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameBoard.swift; sourceTree = "<group>"; };
 		291F4DB02C51541F0050BFF8 /* Ingredient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ingredient.swift; sourceTree = "<group>"; };
@@ -87,11 +87,13 @@
 		291F4DC32C52AD8B0050BFF8 /* IngredientDataExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientDataExtension.swift; sourceTree = "<group>"; };
 		291F4DC52C52B29F0050BFF8 /* SampleDataProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleDataProtocol.swift; sourceTree = "<group>"; };
 		291F4DC72C52C9720050BFF8 /* PotionRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PotionRow.swift; sourceTree = "<group>"; };
+		292964092C571EAB0090A79E /* TurnActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TurnActions.swift; sourceTree = "<group>"; };
 		29BBE13F2C54A371001A3B49 /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
 		29BBE1432C54CBD8001A3B49 /* Turn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Turn.swift; sourceTree = "<group>"; };
 		29BBE1452C54CEFC001A3B49 /* SavedIngredients.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedIngredients.swift; sourceTree = "<group>"; };
 		29BBE1482C554BEF001A3B49 /* GrowingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrowingButton.swift; sourceTree = "<group>"; };
 		29BBE14A2C554DE3001A3B49 /* IngredientButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientButton.swift; sourceTree = "<group>"; };
+		29D7C4D82C5826C800E8C064 /* IngredientSelectionTypePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientSelectionTypePicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,15 +186,16 @@
 			isa = PBXGroup;
 			children = (
 				291F4D722C514CF70050BFF8 /* ContentView.swift */,
-				291F4DA62C5151000050BFF8 /* GameLayout.swift */,
-				291F4DB22C515BD00050BFF8 /* PlayersInformation.swift */,
 				291F4DAA2C5151350050BFF8 /* GameBoard.swift */,
+				291F4DB22C515BD00050BFF8 /* PlayersInformation.swift */,
 				291F4DA82C51512D0050BFF8 /* ActiveTurnPlayerArea.swift */,
+				292964092C571EAB0090A79E /* TurnActions.swift */,
+				29D7C4D82C5826C800E8C064 /* IngredientSelectionTypePicker.swift */,
+				291F4DBA2C5182590050BFF8 /* CompletedPotions.swift */,
 				291F4DB62C5180870050BFF8 /* IngredientPool.swift */,
 				29BBE1452C54CEFC001A3B49 /* SavedIngredients.swift */,
 				291F4DB82C5182500050BFF8 /* IncompletePotions.swift */,
 				291F4DC72C52C9720050BFF8 /* PotionRow.swift */,
-				291F4DBA2C5182590050BFF8 /* CompletedPotions.swift */,
 				291F4DB42C515C790050BFF8 /* AvailablePotions.swift */,
 			);
 			path = Views;
@@ -380,10 +383,11 @@
 				291F4DBD2C5183900050BFF8 /* Potion.swift in Sources */,
 				29BBE1442C54CBD8001A3B49 /* Turn.swift in Sources */,
 				291F4DC62C52B29F0050BFF8 /* SampleDataProtocol.swift in Sources */,
-				291F4DA72C5151000050BFF8 /* GameLayout.swift in Sources */,
 				291F4DAB2C5151350050BFF8 /* GameBoard.swift in Sources */,
 				291F4DB52C515C790050BFF8 /* AvailablePotions.swift in Sources */,
 				29BBE1492C554BEF001A3B49 /* GrowingButton.swift in Sources */,
+				2929640A2C571EAB0090A79E /* TurnActions.swift in Sources */,
+				29D7C4D92C5826C800E8C064 /* IngredientSelectionTypePicker.swift in Sources */,
 				291F4DC22C52AD7D0050BFF8 /* PotionDataExtension.swift in Sources */,
 				291F4DA92C51512D0050BFF8 /* ActiveTurnPlayerArea.swift in Sources */,
 				29BBE1462C54CEFC001A3B49 /* SavedIngredients.swift in Sources */,

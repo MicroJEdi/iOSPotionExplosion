@@ -50,8 +50,6 @@ struct Potion: Identifiable, Hashable {
             dict[potionType] = ("MIR", Color.blue)
         case PotionType.activateUsedPotion:
             dict[potionType] = ("AUP", Color.purple)
-            default:
-                print("Unknown Ingredient Type")
         }
     }
 }

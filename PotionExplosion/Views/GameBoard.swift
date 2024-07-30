@@ -10,95 +10,45 @@ import SwiftData
 
 struct GameBoard: View {
     
-    @State var displaySheet: Bool = false
-    @State var clickedButton: Bool = false
-    @State var selectedIngredient: Ingredient? = nil
-    
-    @EnvironmentObject var state: GameBoardContext
+    @EnvironmentObject var state: GameContext
     
     var body: some View {
         
-        GeometryReader { reader in
-            HStack {
-                Spacer()
-                HStack(spacing: 0) {
-                    ForEach(self.state.ingredients, id:\.self) { columnIngredients in
-                        VStack(spacing: 0) {
-                            ForEach(0..<state.numRows, id:\.self) { i in
-                                
-                                Button( action: {
-                                    selectedIngredient = columnIngredients[state.numRows-1-i]
-                                    displaySheet = true
-                                }) {
-                                        Circle()
-                                            .fill(columnIngredients[state.numRows-1-i].color)
+        ViewThatFits {
+            HStack(spacing: 0) {
+                ForEach(0..<self.state.numColumns, id: \.self) { columnIndex in
+                    VStack(spacing: 0) {
+                        ForEach(0..<self.state.numRows, id: \.self) { rowIndex in
+                            Button( action: {
+                                if self.state.isIngredientSelected && self.state.selctedGameBoardIngredientRow == rowIndex &&
+                                    self.state.selctedGameBoardIngredientColumn == columnIndex {
+                                    self.state.isIngredientSelected = false
+                                    self.state.selctedGameBoardIngredientRow = -1
+                                    self.state.selctedGameBoardIngredientColumn = -1
                                 }
-                                .buttonStyle(IngredientButton())
-                                .onHover(perform: { hovering in
-                                    withAnimation {
-                                        
-                                    }
-                                })
-                                
+                                else {
+                                    self.state.isIngredientSelected = true
+                                    self.state.selctedGameBoardIngredientRow = rowIndex
+                                    self.state.selctedGameBoardIngredientColumn = columnIndex
+                                }
+                            }) {
+                                Circle()
+                                    .fill(self.state.gameBoardIngredients[columnIndex][rowIndex].color)
+                                    .stroke(Color.white, lineWidth: (self.state.isIngredientSelected && self.state.selctedGameBoardIngredientRow == rowIndex &&
+                                                                     self.state.selctedGameBoardIngredientColumn == columnIndex) ? 6.0 : 0.0)
+                                    .padding(2)
                             }
                         }
                     }
+                    .padding(2)
                 }
-                .background(Color(red: 0.7, green: 0.4, blue: 0.2, opacity: 1.0))
-                .overlay {
-                    if displaySheet {
-                        GeometryReader { geometry in
-                            VStack {
-                                Spacer()
-                                VStack {
-                                    Text("Ingedient At")
-                                        .foregroundStyle(Color.white)
-                                        .font(.title)
-                                        .bold()
-                                    Text("Row: \(selectedIngredient?.row ?? 0)")
-                                        .foregroundStyle(Color.white)
-                                        .font(.title2)
-                                        .bold()
-                                    Text("Column: \(selectedIngredient?.column ?? 0)")
-                                        .foregroundStyle(Color.white)
-                                        .font(.title2)
-                                        .bold()
-                                    Button("Cascading Pickup") {
-                                        withAnimation {
-                                            displaySheet = false
-                                        }
-                                    }
-                                    .buttonStyle(GrowingButton())
-                                    Button("Penalty Pickup") {
-                                        withAnimation {
-                                            displaySheet = false
-                                        }
-                                    }
-                                    .buttonStyle(GrowingButton())
-                                    Button("Cancel") {
-                                        withAnimation {
-                                            displaySheet = false
-                                        }
-                                    }
-                                    .buttonStyle(GrowingButton())
-                                }
-                                .frame(width: geometry.size.width)
-                                .background(selectedIngredient?.color)
-                                Spacer()
-                            }
-//                            .onTapGesture {
-//                                displaySheet = false
-//                            }
-                        }
-                    }
-                }
-                Spacer()
             }
+            .coordinateSpace(name: "GameBoard")
+            .background(Color(red: 0.7, green: 0.4, blue: 0.2, opacity: 1.0))
+            .rotationEffect(.degrees(180))
         }
-        .scaledToFill()
         
     }
-    
 }
 
 #Preview("Default") {

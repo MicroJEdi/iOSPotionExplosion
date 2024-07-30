@@ -10,22 +10,22 @@ import Foundation
 extension Ingredient {
     
     static let sampleIngredients = [
-        Ingredient(row: 0, column: 0, ingredientType: IngredientType.black),
-        Ingredient(row: 0, column: 0, ingredientType: IngredientType.blue),
-        Ingredient(row: 0, column: 0, ingredientType: IngredientType.red),
-        Ingredient(row: 0, column: 0, ingredientType: IngredientType.yellow),
-        Ingredient(row: 0, column: 0, ingredientType: IngredientType.black),
-        Ingredient(row: 0, column: 0, ingredientType: IngredientType.blue),
-        Ingredient(row: 0, column: 0, ingredientType: IngredientType.red),
-        Ingredient(row: 0, column: 0, ingredientType: IngredientType.yellow),
-        Ingredient(row: 0, column: 0, ingredientType: IngredientType.black),
-        Ingredient(row: 0, column: 0, ingredientType: IngredientType.blue),
-        Ingredient(row: 0, column: 0, ingredientType: IngredientType.red),
-        Ingredient(row: 0, column: 0, ingredientType: IngredientType.yellow),
-        Ingredient(row: 0, column: 0, ingredientType: IngredientType.black),
-        Ingredient(row: 0, column: 0, ingredientType: IngredientType.blue),
-        Ingredient(row: 0, column: 0, ingredientType: IngredientType.red),
-        Ingredient(row: 0, column: 0, ingredientType: IngredientType.yellow)
+        Ingredient(ingredientType: IngredientType.black),
+        Ingredient(ingredientType: IngredientType.blue),
+        Ingredient(ingredientType: IngredientType.red),
+        Ingredient(ingredientType: IngredientType.yellow),
+        Ingredient(ingredientType: IngredientType.black),
+        Ingredient(ingredientType: IngredientType.blue),
+        Ingredient(ingredientType: IngredientType.red),
+        Ingredient(ingredientType: IngredientType.yellow),
+        Ingredient(ingredientType: IngredientType.black),
+        Ingredient(ingredientType: IngredientType.blue),
+        Ingredient(ingredientType: IngredientType.red),
+        Ingredient(ingredientType: IngredientType.yellow),
+        Ingredient(ingredientType: IngredientType.black),
+        Ingredient(ingredientType: IngredientType.blue),
+        Ingredient(ingredientType: IngredientType.red),
+        Ingredient(ingredientType: IngredientType.yellow)
     ]
     
 }

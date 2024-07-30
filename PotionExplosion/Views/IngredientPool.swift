@@ -10,30 +10,29 @@ import SwiftData
 
 struct IngredientPool: View {
     
-    let state: PlayerContext
+    @EnvironmentObject var state: GameContext
     
     func GetIngredientTypeCount(ingredientType: IngredientType) -> Int {
-        return self.state.collectedIngredients.reduce(0, {
+        return self.state.playerContexts[self.state.activePlayerIndex].collectedIngredients.reduce(0, {
             $0 + (($1.ingredientType == ingredientType) ? 1 : 0)
         })
     }
     
     var body: some View {
-        VStack {
+        VStack(spacing: 0) {
             VStack {
                 ForEach(Array(zip(IngredientType.allCases.indices, IngredientType.allCases)), id: \.0) { (index, item) in
                     HStack {
                         Text("\( self.GetIngredientTypeCount(ingredientType: item ))")
                         Circle()
-                            .frame(width: 20.0)
-                            .foregroundColor(Ingredient.IngredientTypeColorMap[item])
+                            .fill(Ingredient.IngredientTypeColorMap[item] ?? Color.white)
+                            .frame(width: self.state.ingredientWidth)
                     }
                 }
             }
-            .scaledToFit()
-            .padding(5)
         }
-        .background(Color(red: 0.0, green: 0.0, blue: 1.0, opacity: 0.2))
+        .padding(5)
+        .border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/, width: 2)
     }
 }
 

@@ -10,33 +10,28 @@ import SwiftData
 
 struct ActiveTurnPlayerArea: View {
     
-    let ingredientWidth = 12.0
-    
-    @EnvironmentObject var state: PlayersContext
-    
-    func GetActiveTurnPlayerContext() -> PlayerContext {
-        return self.state.playerContexts[self.state.activeTurnPlayerIndex]
-    }
-    
-    func GetIngredientTypeCount(ingredientType: IngredientType) -> Int {
-        return GetActiveTurnPlayerContext().collectedIngredients.reduce(0, {
-            $0 + (($1.ingredientType == ingredientType) ? 1 : 0)
-        })
-    }
+    @EnvironmentObject var state: GameContext
 
     var body: some View {
-        VStack {
+        
+        VStack(spacing: 0) {
             HStack {
-                IngredientPool(state: GetActiveTurnPlayerContext())
-                    .scaledToFit()
-                SavedIngredients(state: GetActiveTurnPlayerContext(), numIngredients: 3, color: Color.purple, ingredientWidth: ingredientWidth)
-                    .scaledToFit()
-                IncompletePotions(state: GetActiveTurnPlayerContext(), ingredientWidth: ingredientWidth)
+                IngredientPool()
+                Spacer()
+                VStack {
+                    CompletedPotions()
+                        .border(Color.black, width: 3.0)
+                    HStack {
+                        SavedIngredients()
+                        IncompletePotions()
+                    }
+                    .frame(maxWidth: .infinity, alignment: .center)
+                }
             }
-            .frame(maxWidth: .infinity, alignment: .leading)
-            CompletedPotions()
+            .frame(maxWidth: .infinity, alignment: .center)
         }
         .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
+        
     }
     
 }

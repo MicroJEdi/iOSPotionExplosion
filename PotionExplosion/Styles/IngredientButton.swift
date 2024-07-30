@@ -10,7 +10,6 @@ import SwiftUI
 
 struct IngredientButton: ButtonStyle {
     
-    
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
             .clipShape(configuration.isPressed ? AnyShape(Circle()) : AnyShape(Capsule()))

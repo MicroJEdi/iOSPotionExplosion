@@ -12,24 +12,30 @@ struct ContentView: View {
     
     @Environment(\.modelContext) private var modelContext
     
-    @StateObject var appContext: AppContext = AppContext()
+    @StateObject var state: GameContext = GameContext()
 
     var body: some View {
+        
         NavigationStack {
-            GameLayout()
+            VStack {
+                HStack {
+                    PlayersInformation()
+                    GameBoard()
+                }
+                TurnActions()
+                ActiveTurnPlayerArea()
+            }
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Text("Potion Explosion")
                         .font(.title)
+                        .bold()
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
                     EditButton()
                 }
             }
-            .environmentObject(appContext)
-            .environmentObject(appContext.gameContext)
-            .environmentObject(appContext.gameContext.gameBoardContext)
-            .environmentObject(appContext.gameContext.playersContext)
+            .environmentObject(state)
         }
     }
 }

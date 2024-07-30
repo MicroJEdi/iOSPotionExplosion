@@ -10,38 +10,28 @@ import SwiftData
 
 struct CompletedPotions: View {
     
-    @EnvironmentObject var state: PlayersContext
-    
-    func GetActiveTurnPlayerContext() -> PlayerContext {
-        return self.state.playerContexts[self.state.activeTurnPlayerIndex]
-    }
-    
-    func GetUsedPotionTypeCount(potionType: PotionType) -> Int {
-        return GetActiveTurnPlayerContext().usedCompletePotions.reduce(0, {
-            $0 + (($1.potionType == potionType) ? 1 : 0)
-        })
-    }
-    
-    func GetUnusedPotionTypeCount(potionType: PotionType) -> Int {
-        return GetActiveTurnPlayerContext().unusedCompletePotions.reduce(0, {
-            $0 + (($1.potionType == potionType) ? 1 : 0)
-        })
-    }
-    
-    func GetTotalPotionTypeCount(potionType: PotionType) -> Int {
-        return GetUsedPotionTypeCount(potionType: potionType) + GetUnusedPotionTypeCount(potionType: potionType)
-    }
+    @EnvironmentObject var state: GameContext
     
     var body: some View {
-        HStack {
-            ForEach(Array(zip(PotionType.allCases.indices, PotionType.allCases)), id: \.0) { (index, item) in
-                VStack {
-                    Text("\(GetUnusedPotionTypeCount(potionType: item)) / \(GetTotalPotionTypeCount(potionType: item))")
-//                    Text("\(Potion.PotionTypeColorMap[item]!.0)")
-//                        .bold()
-//                        .padding(5)
+        VStack {
+            Text("Completed Potions")
+            HStack(spacing: 0) {
+                
+                ForEach(Array(zip(PotionType.allCases.indices, PotionType.allCases)), id: \.0) { (index, item) in
+                    VStack {
+                        
+                        Button(action: {
+                            self.state.turn.selectedActionType = ActionType.UsePotion
+                            self.state.turn.selectedPotionType = item
+                        }) {
+                            Text("\(self.state.playerContexts[self.state.activePlayerIndex].GetUnusedPotionTypeCount(potionType: item)) / \(self.state.playerContexts[self.state.activePlayerIndex].GetTotalPotionTypeCount(potionType: item))")
+                                .font(.title3)
+                                .bold()
+                                .padding(3)
+                        }
+                        .background((self.state.turn.selectedActionType == ActionType.UsePotion && self.state.turn.selectedPotionType == item) ? Color(red: 0.2, green: 0.2, blue: 0.2, opacity: 0.25) : Potion.PotionTypeColorMap[item]!.1)
+                    }
                 }
-                .background(Potion.PotionTypeColorMap[item]!.1)
             }
         }
     }

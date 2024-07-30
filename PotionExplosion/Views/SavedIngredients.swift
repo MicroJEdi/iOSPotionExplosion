@@ -10,25 +10,19 @@ import SwiftData
 
 struct SavedIngredients: View {
     
-    let state: PlayerContext
-    var numIngredients: Int
-    var color: Color
-    var ingredientWidth: CGFloat
+    @EnvironmentObject var state: GameContext
     
     var body: some View {
         VStack {
-            Spacer()
-            ForEach(0..<numIngredients) { _ in
+            ForEach(0..<self.state.numSavedIngredients, id: \.self) { _ in
                 Circle()
                     .stroke(Color.white, lineWidth: 3)
-                    .fill(Color(red: 0.2, green: 0.2, blue: 0.2, opacity: 1.0))
-                    .frame(width: self.ingredientWidth)
-                    .padding(2)
-                Spacer()
+                    .fill(Color(red: 0.3, green: 0.3, blue: 0.3, opacity: 1.0))
+                    .frame(width: self.state.ingredientWidth)
             }
         }
-        .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
-        .background(color)
+        .padding(5)
+        .border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/, width: 2)
     }
 }
 
